@@ -1,0 +1,41 @@
+/*
+Theme Name: Freelance Photographer Theme
+*/
+
+ul,
+li a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  padding: 0;
+  gap: 45px;
+  text-transform: uppercase;
+}
+
+.custom-logo {
+  height: 15px;
+  width: 215px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 85px;
+}
+
+#menu-footer-menu {
+  display: flex;
+  text-transform: uppercase;
+  gap: 85px;
+}
