@@ -9,6 +9,8 @@
         <p>TOUS DROITS RÉSERVÉS</p>
     </footer>
     <?php wp_footer() ?>
+    <?php get_template_part('templates_part/contact'); ?>
+
     </body>
 
     </html>
