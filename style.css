@@ -2,12 +2,48 @@
 Theme Name: Freelance Photographer Theme
 */
 
+/* General */
+
+body {
+  font-family: SpaceMono, sans-serif;
+}
+
+h1 {
+  font-family: SpaceMono, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  font-size: 96px;
+}
+
+h2 {
+  font-family: SpaceMono, sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 66px;
+}
+
+h3 {
+  font-family: SpaceMono, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+p {
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+}
+
 ul,
 li a {
   list-style: none;
   text-decoration: none;
   color: inherit;
+  font-style: normal;
 }
+
+/* Header */
 
 nav {
   display: flex;
@@ -20,12 +56,15 @@ nav {
   padding: 0;
   gap: 45px;
   text-transform: uppercase;
+  font-size: 16px;
 }
 
 .custom-logo {
   height: 15px;
   width: 215px;
 }
+
+/* Footer */
 
 footer {
   display: flex;
@@ -38,6 +77,12 @@ footer {
   display: flex;
   text-transform: uppercase;
   gap: 85px;
+  font-size: 16px;
+}
+
+footer p {
+  font-size: 16px;
+  font-family: SpaceMono, sans-serif;
 }
 
 /* Modale contact  */
@@ -57,10 +102,12 @@ footer {
 
 .modale-content {
   background-color: #fff;
-  margin: 10% auto;
+  margin: 5% auto;
   border: 5px solid black;
-  width: 522px;
-  height: 587px;
+  width: 600px;
+  height: 748px;
+  animation-name: animatetop;
+  animation-duration: 0.6s;
 }
 
 .modal-header {
@@ -74,13 +121,41 @@ footer {
 }
 
 #contact-form {
-  margin: 50px 20%;
+  margin: 68px 25% 36px 25%;
   text-transform: uppercase;
 }
 
-#contact-form input,
-textarea {
+#contact-form input {
   border-radius: 8px;
   border: 1px solid #b8bbc2;
   height: 40px;
+  width: 260px;
+  font-weight: 500;
+}
+
+#contact-form p {
+  margin-bottom: 24px;
+}
+
+#contact-form textarea {
+  height: 210;
+  border-radius: 8px;
+  border: 1px solid #b8bbc2;
+  width: 260px;
+}
+
+#contact-form input[type="submit"] {
+  height: 50px;
+  border-radius: 2px;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }

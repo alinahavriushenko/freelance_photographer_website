@@ -81,3 +81,12 @@ function enqueue_custom_scripts() {
     wp_enqueue_script('custom-script');
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+// Google Fonts
+
+function enqueue_custom_fonts() {
+
+    wp_enqueue_style('custom-fonts', get_stylesheet_directory_uri() . '/assets/fonts/fonts.css', array(), '1.0.0', 'all');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
