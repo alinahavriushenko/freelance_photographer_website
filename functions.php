@@ -76,11 +76,23 @@ add_filter('nav_menu_link_attributes', 'menu_link_class');
 
 function enqueue_custom_scripts() {
 
-    wp_register_script('custom-script', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
+	wp_enqueue_script('jquery');
+    wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
 
-    wp_enqueue_script('custom-script');
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+
+// Localize the reference PHP value
+	function reference_value() {
+
+	$reference = get_field('reference');
+    wp_localize_script('custom-script', 'php_vars', array(
+        'reference' => esc_attr($reference),
+    ));
+}
+
+add_action('wp_enqueue_scripts', 'reference_value');
 
 // Google Fonts
 
