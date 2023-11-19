@@ -2,13 +2,36 @@
 
 <div class="single-photo">
 
-    <?php
-        while ( have_posts() ) : the_post();
+    <?php 
+        while ( have_posts() ) : the_post(); endwhile;
 
-            get_template_part( 'templates_parts/photo_block' );
+$type=get_field('type');
+$reference=get_field('reference');
+$categories=get_the_terms(get_the_ID(), 'categorie');
+$formats=get_the_terms(get_the_ID(),'format');
 
-        endwhile;
-        ?>
+
+?>
+    <article class="photo-block">
+        <div class="photo-info">
+            <h2><?php the_title(); ?></h2>
+            <p>Référence: <?= $reference ?></p>
+            <p>Catégorie: <?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ){
+	foreach ( $categories as $categorie ) {
+		echo $categorie->name;}
+} ?></p>
+            <p>Format: <?php if ( ! empty( $formats ) && ! is_wp_error( $formats ) ){
+	foreach ( $formats as $format ) {
+		echo $format->name;}
+}?></p>
+            <p>Type : <?= $type ?> </p>
+            <p>Année: <?php echo get_the_date('Y'); ?></p>
+
+        </div>
+        <div class="photo">
+            <?php echo the_post_thumbnail( 'large' ); ?>
+        </div>
+    </article>
 
     <div class="photo-more">
         <div class="button-container">
@@ -57,7 +80,7 @@ if (!empty($categories)) {
 
         while ($related_posts->have_posts()) {
             $related_posts->the_post();
-            echo get_the_post_thumbnail(get_the_ID(), 'large');
+            get_template_part( 'templates_parts/photo_block' );
         }
 
     }
@@ -75,4 +98,5 @@ if (!empty($categories)) {
 
 </div>
 
-<?php get_footer();
+
+<?php get_footer(); ?>

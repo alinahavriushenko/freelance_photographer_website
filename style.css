@@ -239,7 +239,7 @@ footer p {
   margin-top: 50px;
 }
 
-.similar-photos-container img {
+.photo-container img {
   width: 100%;
   object-fit: cover;
   align-self: center;

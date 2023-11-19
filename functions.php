@@ -102,3 +102,41 @@ function enqueue_custom_fonts() {
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
+
+// enqueu ajax
+
+function load_more_photos_scripts() {
+    wp_enqueue_script('load-more-script', get_template_directory_uri() . '/js/load-more.js', array('jquery'), '1.0', true);
+    wp_localize_script('load-more-script', 'load_more_params', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ));
+}
+add_action('wp_enqueue_scripts', 'load_more_photos_scripts');
+
+
+// Load more button 
+
+function load_more_photos() {
+    $page = $_POST['page'];
+    $args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 8,
+        'paged' => $page,
+    );
+
+    $custom_photos_query = new WP_Query($args);
+
+    if ($custom_photos_query->have_posts()) {
+        while ($custom_photos_query->have_posts()) {
+            $custom_photos_query->the_post();
+            get_template_part('templates_parts/photo_block');
+        }
+        wp_reset_postdata();
+    } else {
+        echo 'end';
+    }
+
+    die();
+}
+add_action('wp_ajax_load_more_photos', 'load_more_photos');
+add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');

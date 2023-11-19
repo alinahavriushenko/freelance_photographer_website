@@ -36,3 +36,4 @@ window.addEventListener("click", (event) => {
         // Set the value as the content of the label with ID "ref"
         $("#ref").val(referenceValue);
     });
+
