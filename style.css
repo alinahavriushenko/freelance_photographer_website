@@ -158,7 +158,10 @@ footer p {
 .btn {
   background-color: #d8d8d8;
   text-align: center;
-  padding: 16px 110px;
+  padding: 16px 0;
+  width: 272px;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 @keyframes animatetop {
@@ -240,9 +243,10 @@ footer p {
 }
 
 .photo-container img {
-  width: 100%;
   object-fit: cover;
   align-self: center;
+  width: 500px;
+  height: 500px;
 }
 
 .prev-thumbnail img {
@@ -255,4 +259,55 @@ footer p {
 
 #more-photos {
   margin: auto;
+}
+
+.all-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px 145px;
+}
+
+/* Photo filters */
+
+.photo-filters {
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 144px 40px 144px;
+}
+
+.filter {
+  border-radius: 8px;
+  border: 1px solid #b8bbc2;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter:focus {
+  outline: #215aff;
+}
+
+label {
+  color: #313144;
+  text-transform: uppercase;
+  font-family: Poppins;
+  font-weight: 500;
+  align-self: center;
+  line-height: 18px;
+}
+
+select {
+  border: none;
+  align-self: self-end;
+}
+
+select:focus {
+  outline: none;
+}
+
+.taxonomies {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
 }

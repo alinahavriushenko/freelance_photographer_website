@@ -6,27 +6,39 @@
 
 </div> -->
 
-<?php
-$args = array(
-    'post_type' => 'photo',
-    'posts_per_page' => 8,
-);
+<div class="photo-filters">
+    <div class="taxonomies">
+        <form class="filter" tabindex="0">
+            <label for="categories-select">Catégories</label>
+            <select id="categories-select">
+                <option value=""></option>
+            </select>
+        </form>
+        <form class="filter">
+            <label for="formats-select">Formats</label>
+            <select id="formats-select">
+                <option value=""></option>
+            </select>
+        </form>
+    </div>
 
-$custom_photos_query = new WP_Query($args);
+    <form class="filter">
+        <label for="sort-by-date-select">Trier par</label>
+        <select id="sort-by-date-select">
+            <option value=""></option>
+            <option value="DESC">Plus récentes</option>
+            <option value="ASC">Plus anciennes</option>
+        </select>
+    </form>
 
-if ($custom_photos_query->have_posts()) {
-    while ($custom_photos_query->have_posts()) {
-        $custom_photos_query->the_post();
-        get_template_part('templates_parts/photo_block');
-    }
-    wp_reset_postdata(); ?>
+</div>
+
+
+<div class="all-photos" id="photo-gallery">
+</div>
+
 <div class="load-more-btn-container">
-    <button id="load-more-btn" data-page="1">Load More</button>
-</div> <?php
-} else {
-    echo 'Aucune photo trouvée.';
-}
-?>
-
+    <form id="load-more-btn" class="btn" data-page="1">Charger plus</form>
+</div>
 
 <?php get_footer() ?>
