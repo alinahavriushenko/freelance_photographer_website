@@ -40,6 +40,7 @@ if ( ! function_exists( 'myfirsttheme_setup' ) ) :
 		register_nav_menus( array(
 			'main-menu'   => __( 'Primary Menu', 'freelance-theme' ),
             'footer' => __( 'Footer Menu', 'freelance-theme' ),
+            'mobile-menu' => __('Mobile Menu', 'freelance-theme'),
 		) );
 
 		/**

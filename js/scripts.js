@@ -1,3 +1,31 @@
+// mobile menu
+
+class MobileMenu {
+    constructor() {
+        this.mobileMenu = document.querySelector(".mobile-menu");
+        this.toggleButton = document.querySelector(".mobile-menu-trigger i");
+ 
+        this.toggleButton.addEventListener("click", () => this.toggleMobileMenu());
+    }
+ 
+    toggleMobileMenu() {
+        // Toggle the Font Awesome classes for the icon
+        this.toggleButton.classList.toggle("fa-bars");
+        this.toggleButton.classList.toggle("fa-xmark");
+
+        // Toggle the visibility of the mobile menu
+        if (this.mobileMenu.style.display === "block") {
+            this.mobileMenu.style.display = "none";
+        } else {
+            this.mobileMenu.style.display = "block";
+        }
+    }
+}
+
+// Instantiate the MobileMenu class
+const mobileMenu = new MobileMenu();
+
+
 
 // contact module 
 
