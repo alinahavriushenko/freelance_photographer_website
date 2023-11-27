@@ -10,6 +10,7 @@
     </footer>
     <?php wp_footer() ?>
     <?php get_template_part('templates_parts/contact'); ?>
+    <?php get_template_part('templates_parts/lightbox'); ?>
 
     </body>
 

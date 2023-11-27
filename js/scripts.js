@@ -8,13 +8,14 @@ const contactModale = document.getElementById('contact-modale');
 const contactButton = document.getElementById('contact-button');
 
 
-contactLink.onclick = function() {
+if (contactLink) {contactLink.onclick = function() {
     contactModale.style.display = "block";
-}
+}}
 
+if (contactButton) {
 contactButton.onclick = function() {
     contactModale.style.display = "block";
-}
+}}
 
 function closeModale() {
     contactModale.style.display = "none";

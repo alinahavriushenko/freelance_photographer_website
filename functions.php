@@ -103,15 +103,34 @@ function enqueue_custom_fonts() {
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
 
-// enqueu ajax
+// Font Awesome
+
+function enqueue_font_awesome() {
+    wp_enqueue_style('fontawesome', get_template_directory_uri() . '/assets/fonts/fontawesome6/css/fontawesome.css');
+    wp_enqueue_style('fontawesome-brands', get_template_directory_uri() . '/assets/fonts/fontawesome6/css/brands.css');
+    wp_enqueue_style('fontawesome-solid', get_template_directory_uri() . '/assets/fonts/fontawesome6/css/solid.css');
+}
+add_action('wp_enqueue_scripts', 'enqueue_font_awesome');
+
+// Ajax & Lightbox
 
 function load_more_photos_scripts() {
+    // Enqueue 'load-more-script' and 'load-lightbox' JavaScript files
     wp_enqueue_script('load-more-script', get_template_directory_uri() . '/js/load-more.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('load-lightbox', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0', true);
+
+    // Localize 'load-more-script' to pass AJAX URL
     wp_localize_script('load-more-script', 'load_more_params', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ));
+
+    // Localize 'load-lightbox' to pass AJAX URL (if needed)
+    wp_localize_script('load-lightbox', 'load_lightbox_params', array(
         'ajax_url' => admin_url('admin-ajax.php'),
     ));
 }
 add_action('wp_enqueue_scripts', 'load_more_photos_scripts');
+
 
 
 // Load more button 
@@ -120,7 +139,7 @@ function load_more_photos() {
     $page = $_POST['page'];
     $args = array(
         'post_type' => 'photo',
-        'posts_per_page' => 8,
+        'posts_per_page' => 12,
         'paged' => $page,
     );
 
@@ -132,8 +151,6 @@ function load_more_photos() {
             get_template_part('templates_parts/photo_block');
         }
         wp_reset_postdata();
-    } else {
-        echo 'end';
     }
 
     die();
@@ -177,7 +194,7 @@ function categories() {
         'hide_empty' => false,
     ));
 
-    $options = '<option value=""></option>';
+    $options = '<option value="">Catégories</option>';
     foreach ($categories as $category) {
         $options .= '<option value="' . $category->slug . '">' . $category->name . '</option>';
     }
@@ -193,7 +210,7 @@ function formats() {
         'hide_empty' => false,
     ));
 
-    $options = '<option value=""></option>';
+    $options = '<option value="">Formats</option>';
 	foreach ($formats as $format) {
 		$options .= '<option value="' . $format->slug . '">' . $format->name . '</option>';
 	}

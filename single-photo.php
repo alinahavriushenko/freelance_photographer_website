@@ -36,7 +36,7 @@ $formats=get_the_terms(get_the_ID(),'format');
     <div class="photo-more">
         <div class="button-container">
             <p>Cette photo vous intéresse?</p>
-            <a href="#contact" id="contact-button" class="btn">Contact</a>
+            <form href="#contact" id="contact-button" class="btn">Contact</form>
         </div>
         <div class="photo-navigation">
             <div class="prev-thumbnail">
@@ -90,7 +90,7 @@ if (!empty($categories)) {
 ?>
         </div>
         <div>
-            <a href="#" id="more-photos" class="btn">Toutes les photos</a>
+            <form href="#" id="more-photos" class="btn">Toutes les photos</form>
         </div>
 
 

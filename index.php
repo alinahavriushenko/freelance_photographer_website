@@ -1,31 +1,35 @@
 <?php get_header() ?>
 
-<!-- hero -->
-<!-- <div>
-    <img src='/wp-content/uploads/2023/11/nathalie-11-scaled.jpeg' />
+<div class="hero">
+    <?php
+$upload_dir = wp_upload_dir();
+$image_url = $upload_dir['baseurl'] . '/2023/11/nathalie-11-scaled.jpeg';
+?>
+    <img src="<?php echo get_template_directory_uri(); ?> /assets/images/hero-header.png" class="hero-title" />
+    <img src="<?php echo esc_url($image_url); ?>" class="hero-image" />
+</div>
 
-</div> -->
+
+
+
 
 <div class="photo-filters">
     <div class="taxonomies">
-        <form class="filter" tabindex="0">
-            <label for="categories-select">Catégories</label>
+        <form class="filter">
             <select id="categories-select">
-                <option value=""></option>
+                <option value="">Catégories</option>
             </select>
         </form>
         <form class="filter">
-            <label for="formats-select">Formats</label>
             <select id="formats-select">
-                <option value=""></option>
+                <option value="">Formats</option>
             </select>
         </form>
     </div>
 
     <form class="filter">
-        <label for="sort-by-date-select">Trier par</label>
         <select id="sort-by-date-select">
-            <option value=""></option>
+            <option value="">Trier par</option>
             <option value="DESC">Plus récentes</option>
             <option value="ASC">Plus anciennes</option>
         </select>
