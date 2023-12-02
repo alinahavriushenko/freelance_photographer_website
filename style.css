@@ -95,6 +95,7 @@ footer {
 footer p {
   font-size: 16px;
   font-family: SpaceMono, sans-serif;
+  margin: 0;
 }
 
 /* Modale contact  */
@@ -261,14 +262,6 @@ footer p {
   height: 500px;
 }
 
-.prev-thumbnail img {
-  display: none;
-}
-
-.prev-post:hover + .prev-thumbnail img {
-  display: block;
-}
-
 #more-photos {
   margin: 50px auto;
 }
@@ -340,7 +333,7 @@ option:hover {
   gap: 35px;
 }
 
-/* Photo hover */
+/* Photo overlay */
 
 .overlay {
   position: absolute;
@@ -394,6 +387,11 @@ option:hover {
   color: white;
   text-transform: uppercase;
   padding: 439px 10px;
+}
+
+.next-thumbnail,
+.prev-thumbnail {
+  display: none;
 }
 
 /* Lightbox */
@@ -477,4 +475,13 @@ option:hover {
     text-align: center;
     padding-top: 220px;
   }
+}
+
+footer,
+#menu-footer-menu {
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
 }

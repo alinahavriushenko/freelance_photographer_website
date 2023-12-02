@@ -9,11 +9,9 @@ class MobileMenu {
     }
  
     toggleMobileMenu() {
-        // Toggle the Font Awesome classes for the icon
         this.toggleButton.classList.toggle("fa-bars");
         this.toggleButton.classList.toggle("fa-xmark");
 
-        // Toggle the visibility of the mobile menu
         if (this.mobileMenu.style.display === "block") {
             this.mobileMenu.style.display = "none";
         } else {
@@ -22,7 +20,6 @@ class MobileMenu {
     }
 }
 
-// Instantiate the MobileMenu class
 const mobileMenu = new MobileMenu();
 
 
@@ -135,3 +132,22 @@ jQuery(function($) {
         updatePhotos(category, format, sortByDate);
     });
 });
+
+// photo preview on hover
+
+jQuery(document).ready(function($) {
+    $('.prev-post').hover(function() {
+        $('.prev-thumbnail').fadeIn('fast');
+        $('.next-thumbnail').hide();
+    }, function() {
+        $('.prev-thumbnail').fadeOut('fast');
+    });
+
+    $('.next-post').hover(function() {
+        $('.next-thumbnail').fadeIn('fast');
+        $('.prev-thumbnail').hide();
+    }, function() {
+        $('.next-thumbnail').fadeOut('fast');
+    });
+});
+
