@@ -42,11 +42,17 @@ jQuery(document).ready(function($) {
     });
 
     $(document).on('click', '.lightbox-trigger', function(event) {
-        event.preventDefault();
-        const imageUrl = $(this).data('image');
-        lightboxImage.attr('src', imageUrl);
-        lightbox.show();
-        currentPhotoIndex = $(this).index();
+    event.preventDefault();
+    const imageUrl = $(this).data('image');
+    lightboxImage.attr('src', imageUrl);
+    lightbox.show();
+
+    const clickedImageUrl = $(this).data('image');
+    const index = photos.findIndex(photo => photo.image === clickedImageUrl);
+
+    if (index !== -1) {
+        currentPhotoIndex = index;
         showImage(currentPhotoIndex);
-    });
+    }
+});
 });

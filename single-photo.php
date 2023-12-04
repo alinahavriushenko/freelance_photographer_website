@@ -36,7 +36,7 @@ $formats=get_the_terms(get_the_ID(),'format');
     <div class="photo-more">
         <div class="button-container">
             <p>Cette photo vous intéresse?</p>
-            <form href="#contact" id="contact-button" class="btn">Contact</form>
+            <button href="#contact" id="contact-button" class="btn">Contact</button>
         </div>
 
 
@@ -63,8 +63,8 @@ $formats=get_the_terms(get_the_ID(),'format');
 
     </div>
     <div>
-        <h3>Vous aimerez aussi</h3>
-        <div class="similar-photos-container">
+        <h3 class="titre">Vous aimerez aussi</h3>
+        <div class="similar-photos-container all-photos">
             <?php
 $categories = get_the_terms(get_the_ID(), 'categorie');
 if (!empty($categories)) {
@@ -95,9 +95,7 @@ if (!empty($categories)) {
 
 ?>
         </div>
-        <div>
-            <form href="#" id="more-photos" class="btn">Toutes les photos</form>
-        </div>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="more-photos" class="btn">Toutes les photos</a>
 
 
     </div>

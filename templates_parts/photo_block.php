@@ -9,11 +9,11 @@ $categories=get_the_terms(get_the_ID(), 'categorie');
     <?php endif; ?>
     <div class="overlay">
         <a href="<?php the_permalink(); ?>"><i class="fa-solid fa-eye" id="icon-more"></i></a>
-        <a class="icon-bg lightbox-trigger" id="icon-fullscreen"
+        <div class="icon-bg lightbox-trigger" id="icon-fullscreen"
             data-image="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>"
             data-title="<?php echo esc_attr(get_the_title()); ?>">
             <i class="fa-solid fa-expand"></i>
-        </a>
+        </div>
         <div class="photo-info-hover">
             <h3><?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ){
 	foreach ( $categories as $categorie ) {

@@ -30,8 +30,8 @@ if ($photo_posts->have_posts()) {
 
 <div class="lightbox">
     <div class="lightbox-close"><i class="fa-solid fa-xmark"></i></div>
-    <h3 class="lightbox-next">Suivante<i class="fa-solid fa-arrow-right-long"></i></h3>
-    <h3 class="lightbox-prev"><i class="fa-solid fa-arrow-left-long"></i>Précédente</h3>
+    <h3 class="lightbox-next">Suivante <i class="fa-solid fa-arrow-right-long"></i></h3>
+    <h3 class="lightbox-prev"><i class="fa-solid fa-arrow-left-long"></i> Précédente</h3>
     <div class="lightbox-container">
         <img src="" class="lightbox-image" />
         <div id="photos-data" data-photos="<?php echo esc_attr(json_encode($photos)); ?>"></div>

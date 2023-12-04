@@ -14,7 +14,7 @@ jQuery(function($) {
             },
             success: function(response) {
                 if (response) {
-                    $('.load-more-btn-container').before(response);
+                    $('.all-photos').append(response); 
                     $('#load-more-btn').data('page', page);
                 } else {
                     $('#load-more-btn').hide();

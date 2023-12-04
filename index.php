@@ -42,7 +42,7 @@ $image_url = $upload_dir['baseurl'] . '/2023/11/nathalie-11-scaled.jpeg';
 </div>
 
 <div class="load-more-btn-container">
-    <form id="load-more-btn" class="btn" data-page="1">Charger plus</form>
+    <button id="load-more-btn" class="btn" data-page="1">Charger plus</button>
 </div>
 
 <?php get_footer() ?>

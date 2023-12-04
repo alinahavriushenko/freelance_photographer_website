@@ -29,6 +29,7 @@ const mobileMenu = new MobileMenu();
 document.addEventListener("DOMContentLoaded", function() {
 
 const contactLink = document.querySelector('.contact');
+const contactLinkMob = document.querySelector('.contact-mobile');
 const contactModale = document.getElementById('contact-modale');
 const contactButton = document.getElementById('contact-button');
 
@@ -36,6 +37,12 @@ const contactButton = document.getElementById('contact-button');
 if (contactLink) {contactLink.onclick = function() {
     contactModale.style.display = "block";
 }}
+
+if (contactLinkMob) {
+    contactLinkMob.onclick = function() {
+        contactModale.style.display = "block";
+    }
+}
 
 if (contactButton) {
 contactButton.onclick = function() {
@@ -56,10 +63,8 @@ window.addEventListener("click", (event) => {
 // reference autoinput 
 
     jQuery(document).ready(function($) {
-        // Get the PHP variable value
         var referenceValue = php_vars.reference;
 
-        // Set the value as the content of the label with ID "ref"
         $("#ref").val(referenceValue);
     });
 
@@ -107,7 +112,7 @@ jQuery(function($) {
         },
         success: function(response) {
             $('#categories-select').html(response);
-            loadAllPhotos(); // Load all photos on initial load
+            loadAllPhotos();
         }
     });
 

@@ -134,7 +134,7 @@ add_action('wp_enqueue_scripts', 'load_more_photos_scripts');
 
 
 
-// Load more button 
+// Load more button
 
 function load_more_photos() {
     $page = $_POST['page'];
@@ -226,38 +226,42 @@ function filter_photos() {
     $format = sanitize_text_field($_POST['format']);
     $sortByDate = sanitize_text_field($_POST['sortByDate']);
 
-    $args = array(
-    'post_type' => 'photo',
-    'posts_per_page' => 8,
-    'orderby' => 'date',
-    'order' => $sortByDate,
-    'tax_query' => array(
-        'relation' => 'OR',
-        array(
-            'taxonomy' => 'categorie',
-            'field' => 'slug',
-            'terms' => $category,
-        ),
-        array(
-            'taxonomy' => 'format',
-            'field' => 'slug',
-            'terms' => $format,
-        ),
-    ),
-);
+     $args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 8,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    );
+
+    if (empty($category) && empty($format)) {
+        if ($sortByDate === 'ASC' || $sortByDate === 'DESC') {
+            $args['order'] = $sortByDate;
+        }
+    } else {
+        $args['order'] = $sortByDate;
+        $args['tax_query'] = array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'categorie',
+                'field' => 'slug',
+                'terms' => $category,
+            ),
+            array(
+                'taxonomy' => 'format',
+                'field' => 'slug',
+                'terms' => $format,
+            ),
+        );
+    }
 
     $custom_photos_query = new WP_Query($args);
+
 
     ob_start();
     if ($custom_photos_query->have_posts()) {
         while ($custom_photos_query->have_posts()) {
             $custom_photos_query->the_post();
-            ?>
-<div class="photo-item">
-    <?php 			get_template_part('templates_parts/photo_block');
- ?>
-</div>
-<?php
+            get_template_part('templates_parts/photo_block');
         }
     } else {
         echo 'No photos found.';
