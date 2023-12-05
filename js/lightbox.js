@@ -7,6 +7,7 @@ jQuery(document).ready(function($) {
     const lightboxReference = $('.lightbox-reference');
     const lightboxCategories = $('.lightbox-categories');
 
+    // Retrieving photo data
     const photosData = $('#photos-data');
     const photos = photosData.data('photos');
 

@@ -22,8 +22,6 @@ class MobileMenu {
 
 const mobileMenu = new MobileMenu();
 
-
-
 // contact module 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -34,7 +32,8 @@ const contactModale = document.getElementById('contact-modale');
 const contactButton = document.getElementById('contact-button');
 
 
-if (contactLink) {contactLink.onclick = function() {
+if (contactLink) {
+    contactLink.onclick = function() {
     contactModale.style.display = "block";
 }}
 
@@ -63,12 +62,11 @@ window.addEventListener("click", (event) => {
 // reference autoinput 
 
     jQuery(document).ready(function($) {
-        var referenceValue = php_vars.reference;
-
-        $("#ref").val(referenceValue);
+        var referenceValue = php_vars.reference;  // Accessing the PHP variable $reference
+        $("#ref").val(referenceValue); 
     });
 
-// filter phots
+// filter photos
 
 jQuery(function($) {
 

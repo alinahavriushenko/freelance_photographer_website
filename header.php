@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathalie Mota Photograph Event</title>
+    <meta name="description"
+        content="Photographe professionnelle spécialisée dans l'événementiel, Nathalie Mota capture l'essence unique de chaque occasion. Découvrez son portfolio d'images saisissantes.">
+
+
     <?php wp_head() ?>
 
 </head>

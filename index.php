@@ -2,16 +2,21 @@
 
 <div class="hero">
     <?php
+
+// Get the base URL for uploads directory and construct the hero image URL
+
 $upload_dir = wp_upload_dir();
 $image_url = $upload_dir['baseurl'] . '/2023/11/nathalie-11-scaled.jpeg';
 ?>
-    <img src="<?php echo get_template_directory_uri(); ?> /assets/images/hero-header.png" class="hero-title" />
-    <img src="<?php echo esc_url($image_url); ?>" class="hero-image" />
+
+    <!-- Display the hero section -->
+
+    <img src="<?php echo get_template_directory_uri(); ?> /assets/images/hero-header.png" class="hero-title"
+        alt="photographe event" />
+    <img src="<?php echo esc_url($image_url); ?>" class="hero-image" alt="hero image" />
 </div>
 
-
-
-
+<!-- Photo filters -->
 
 <div class="photo-filters">
     <div class="taxonomies">
@@ -34,9 +39,7 @@ $image_url = $upload_dir['baseurl'] . '/2023/11/nathalie-11-scaled.jpeg';
             <option value="ASC">Plus anciennes</option>
         </select>
     </form>
-
 </div>
-
 
 <div class="all-photos" id="photo-gallery">
 </div>

@@ -5,13 +5,14 @@
     <?php 
         while ( have_posts() ) : the_post(); endwhile;
 
+// Retrieving custom fields data
+
 $type=get_field('type');
 $reference=get_field('reference');
 $categories=get_the_terms(get_the_ID(), 'categorie');
 $formats=get_the_terms(get_the_ID(),'format');
-
-
 ?>
+
     <article class="photo-block">
         <div class="photo-info">
             <h2><?php the_title(); ?></h2>
@@ -26,7 +27,6 @@ $formats=get_the_terms(get_the_ID(),'format');
 }?></p>
             <p>Type : <?= $type ?> </p>
             <p>Année: <?php echo get_the_date('Y'); ?></p>
-
         </div>
         <div class="photo">
             <?php echo the_post_thumbnail( 'large' ); ?>
@@ -39,6 +39,7 @@ $formats=get_the_terms(get_the_ID(),'format');
             <button href="#contact" id="contact-button" class="btn">Contact</button>
         </div>
 
+        <!-- Displaying navigation with previous and next post thumbnails -->
 
         <div class="photo-navigation">
             <div>
@@ -60,8 +61,10 @@ $formats=get_the_terms(get_the_ID(),'format');
             <?php previous_post_link('%link', '<img src="' . get_template_directory_uri() . '/assets/images/Precedente.png" class="prev-post" />'); ?>
             <?php next_post_link('%link', '<img src="' . get_template_directory_uri() . '/assets/images/Suivante.png" class="next-post" />'); ?>
         </div>
-
     </div>
+
+    <!-- Displaying related posts based on the category of the current post -->
+
     <div>
         <h3 class="titre">Vous aimerez aussi</h3>
         <div class="similar-photos-container all-photos">

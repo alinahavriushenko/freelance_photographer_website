@@ -8,6 +8,7 @@ $args = array(
 
 $photo_posts = new WP_Query($args);
 
+// An array to store photo data
 $photos = array();
 
 if ($photo_posts->have_posts()) {
@@ -18,6 +19,7 @@ if ($photo_posts->have_posts()) {
         $reference = get_field('reference');
         $categories = get_the_terms(get_the_ID(), 'categorie');
 
+        // Store photo data in the $photos array
         $photos[] = array(
             'image' => $image_url,
             'reference' => $reference,
